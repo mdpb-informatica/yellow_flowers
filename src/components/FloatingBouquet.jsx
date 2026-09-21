@@ -2,7 +2,7 @@ import { Billboard, useTexture } from '@react-three/drei'
 import { useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
-import bouquetImage from '../assets/ramo.webp'
+import bouquetImage from '../assets/ramo.png'
 
 export default function FloatingBouquet({
   position = [0, 0, 0],
@@ -28,7 +28,14 @@ export default function FloatingBouquet({
     <Billboard ref={group} position={position} follow={true} lockX={false} lockY={false} lockZ={false}>
       <mesh scale={[scale * 1.45, scale * 2, 1]}>
         <planeGeometry args={[1, 1]} />
-        <meshBasicMaterial map={texture} transparent alphaTest={0.05} toneMapped={false} />
+        <meshBasicMaterial
+          map={texture}
+          transparent
+          alphaTest={0.01}
+          depthWrite={false}
+          toneMapped={false}
+          side={THREE.DoubleSide}
+        />
       </mesh>
     </Billboard>
   )
