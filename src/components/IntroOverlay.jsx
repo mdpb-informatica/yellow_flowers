@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import bouquetImage from '../assets/ramo.png'
+import bouquetImage from '../assets/ramo.webp'
 
 export default function IntroOverlay({ onEnter }) {
   return (
